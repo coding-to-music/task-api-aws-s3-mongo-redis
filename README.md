@@ -17,7 +17,7 @@ process.env.ACCESS_TOKEN_LIFETIME, 10) || 300;
 process.env.REFRESH_TOKEN_LIFETIME, 10) || 600;
 process.env.ACCESS_KEY_ID,
 process.env.SECRET_ACCESS_KEY
-const s3 = new aws.S3({ params: { Bucket: process.env.S3_BUCKET } });
+process.env.S3_BUCKET
 process.env.MONGODB_URI
 process.env.GMAIL_USER,
 process.env.GMAIL_PASSWORD
