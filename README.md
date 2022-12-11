@@ -1,18 +1,17 @@
 # task-api-aws-s3-mongo-redis
 
-
-# 🚀 YYYYYYYYYYYYYYYYYYY 🚀
+# 🚀 A simple task API in Express with OAuth, Caching, API rate limiting feature 🚀
 
 https://github.com/coding-to-music/task-api-aws-s3-mongo-redis
 
 https://task-api-aws-s3-mongo-redis.vercel.app
 
-
-From / By 
+From / By https://github.com/arifmahmudrana/task-api
 
 ## Environment variables:
 
 ```java
+
 ```
 
 ## GitHub
@@ -32,11 +31,13 @@ git push -u origin main
 ## Add env to .env file see example in .env.sample
 
 ## Install
+
 ```bash
 npm i
 ```
 
 ## Create client
+
 ```bash
 npm run create_client
 ```
@@ -44,26 +45,31 @@ npm run create_client
 ## Import postman collection & variables & set client informations
 
 ## To run developement server
+
 ```bash
 npm run dev
 ```
 
 ## To clear unused tokens
+
 ```bash
 npm run clear_tokens
 ```
 
 ## To run express production server
+
 ```bash
 npm start
 ```
 
 ## To run cli
+
 ```bash
 node_modules/.bin/env-cmd ./.env node bin/cli
 ```
 
 [demo-live](https://task-api-rana.herokuapp.com/)
+
 ```
 demo CLIENT_ID - dixDTqxxBsd8x9un
 demo CLIENT_SECRET - (D\ZJVeP?%ZdA[dJ=?\h%r*D^=g(,n/Z
@@ -101,4 +107,5 @@ demo CLIENT_SECRET - (D\ZJVeP?%ZdA[dJ=?\h%r*D^=g(,n/Z
 - [arifmahmudrana](https://github.com/arifmahmudrana)
 
 ## License
+
 [MIT](LICENSE)
