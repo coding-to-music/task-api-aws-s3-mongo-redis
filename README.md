@@ -39,6 +39,41 @@ git remote add origin git@github.com:coding-to-music/task-api-aws-s3-mongo-redis
 git push -u origin main
 ```
 
+## ncu upgrade Node package versions
+
+```
+ncu
+```
+
+Output
+
+```
+Checking /mnt/volume_nyc1_01/task-api-aws-s3-mongo-redis/package.json
+[====================] 27/27 100%
+
+ @sendgrid/mail        ^6.3.1  →     ^7.7.0
+ aws-sdk             ^2.441.0  →  ^2.1272.0
+ bluebird              ^3.5.4  →     ^3.7.2
+ cli-table3            ^0.5.1  →     ^0.6.3
+ env-cmd               ^8.0.2  →    ^10.1.0
+ express              ^4.16.4  →    ^4.18.2
+ express-paginate      ^1.0.0  →     ^1.0.2
+ express-rate-limit    ^3.5.0  →     ^6.7.0
+ faker                 ^4.1.0  →     ^6.6.6
+ mongoose              ^5.5.0  →     ^6.8.0
+ nodemailer            ^6.1.1  →     ^6.8.0
+ nodemon             ^1.18.11  →    ^2.0.20
+ pug                   ^2.0.3  →     ^3.0.2
+ qs                    ^6.7.0  →    ^6.11.0
+ rate-limit-redis      ^1.6.0  →     ^3.0.1
+ redis                 ^2.8.0  →     ^4.5.1
+ sharp                ^0.22.0  →    ^0.31.2
+ validator           ^10.11.0  →    ^13.7.0
+ yargs                ^13.2.2  →    ^17.6.2
+
+Run ncu -u to upgrade package.json
+```
+
 # Task API
 
 ## Add env to .env file see example in .env.sample
