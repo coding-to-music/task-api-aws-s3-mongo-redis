@@ -11,18 +11,20 @@ From / By https://github.com/arifmahmudrana/task-api
 ## Environment variables:
 
 ```java
-process.env.PORT
-process.env.NODE_ENV === 'development'
-process.env.ACCESS_TOKEN_LIFETIME, 10) || 300;
-process.env.REFRESH_TOKEN_LIFETIME, 10) || 600;
-process.env.ACCESS_KEY_ID,
-process.env.SECRET_ACCESS_KEY
-process.env.S3_BUCKET
-process.env.MONGODB_URI
-process.env.GMAIL_USER,
-process.env.GMAIL_PASSWORD
-process.env.EMAIL_FROM,
-process.env.SENDGRID_API_KEY
+PORT=
+MONGODB_URI=
+REDIS_URL=
+NODE_ENV=
+ACCESS_TOKEN_LIFETIME=
+REFRESH_TOKEN_LIFETIME=
+SENDGRID_API_KEY=
+GMAIL_USER=
+GMAIL_PASSWORD=
+EMAIL_FROM=
+ROOT_URL=
+ACCESS_KEY_ID=
+SECRET_ACCESS_KEY=
+S3_BUCKET=
 ```
 
 ## GitHub
