@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const paginate = require('express-paginate');
 const qs = require('qs');
 const url = require('url');

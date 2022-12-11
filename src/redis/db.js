@@ -1,5 +1,7 @@
-const redis = require('redis');
-const bluebird = require('bluebird');
+require("dotenv").config();
+
+const redis = require("redis");
+const bluebird = require("bluebird");
 bluebird.promisifyAll(redis);
 const db = redis.createClient(process.env.REDIS_URL);
 

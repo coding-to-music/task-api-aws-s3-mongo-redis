@@ -1,20 +1,22 @@
-const validator = require('validator');
-const express = require('express');
+require("dotenv").config();
+
+const validator = require("validator");
+const express = require("express");
 const router = express.Router();
-const { User } = require('../models/User');
-const customErr = require('../utils/err');
-const formatValidationErrors = require('../utils/format-validation-errors');
-const { generateRandomStringURLSafe } = require('../utils/rand');
+const { User } = require("../models/User");
+const customErr = require("../utils/err");
+const formatValidationErrors = require("../utils/format-validation-errors");
+const { generateRandomStringURLSafe } = require("../utils/rand");
 const {
   sendVerificationEmail,
-  sendResetPasswordEmail
-} = require('../mails/mail');
+  sendResetPasswordEmail,
+} = require("../mails/mail");
 
-router.post('/register', async (req, res, next) => {
+router.post("/register", async (req, res, next) => {
   try {
     const user = await new User({
       ...req.body,
-      verifyToken: generateRandomStringURLSafe(48)
+      verifyToken: generateRandomStringURLSafe(48),
     }).save();
 
     res.status(201).send();
@@ -28,7 +30,7 @@ router.post('/register', async (req, res, next) => {
   }
 });
 
-router.get('/verify/:token([a-z0-9]{48})', async (req, res, next) => {
+router.get("/verify/:token([a-z0-9]{48})", async (req, res, next) => {
   const user = await User.findByVerifyToken(req.params.token);
 
   try {
@@ -37,7 +39,7 @@ router.get('/verify/:token([a-z0-9]{48})', async (req, res, next) => {
       await user.save();
       res.send();
     } else {
-      throw customErr('Not Found', 404);
+      throw customErr("Not Found", 404);
     }
   } catch (error) {
     next(error);
@@ -45,13 +47,13 @@ router.get('/verify/:token([a-z0-9]{48})', async (req, res, next) => {
 });
 
 router.post(
-  '/resend-verify',
+  "/resend-verify",
   (req, res, next) => {
     if (!req.body.email) {
-      return next(customErr('Email is required', 422));
+      return next(customErr("Email is required", 422));
     }
     if (!validator.isEmail(req.body.email)) {
-      return next(customErr('Email is invalid', 422));
+      return next(customErr("Email is invalid", 422));
     }
 
     next();
@@ -59,7 +61,7 @@ router.post(
   async (req, res, next) => {
     const user = await User.findOne({
       email: req.body.email,
-      verified: false
+      verified: false,
     });
 
     try {
@@ -74,7 +76,7 @@ router.post(
           `${process.env.ROOT_URL}/api/v1/verify/${user.verifyToken}`
         );
       } else {
-        throw customErr('Not Found', 404);
+        throw customErr("Not Found", 404);
       }
     } catch (error) {
       next(error);
@@ -83,13 +85,13 @@ router.post(
 );
 
 router.post(
-  '/send-reset-password',
+  "/send-reset-password",
   (req, res, next) => {
     if (!req.body.email) {
-      return next(customErr('Email is required', 422));
+      return next(customErr("Email is required", 422));
     }
     if (!validator.isEmail(req.body.email)) {
-      return next(customErr('Email is invalid', 422));
+      return next(customErr("Email is invalid", 422));
     }
 
     next();
@@ -97,7 +99,7 @@ router.post(
   async (req, res, next) => {
     const user = await User.findOne({
       email: req.body.email,
-      verified: true
+      verified: true,
     });
 
     try {
@@ -112,7 +114,7 @@ router.post(
           `${process.env.ROOT_URL}/api/v1/verify/${user.reset.token}`
         );
       } else {
-        throw customErr('Not Found', 404);
+        throw customErr("Not Found", 404);
       }
     } catch (error) {
       next(error);
@@ -132,14 +134,14 @@ const resetPassword = async (req, res, next) => {
 
       res.send();
     } else {
-      throw customErr('Not Found', 404);
+      throw customErr("Not Found", 404);
     }
   } catch (error) {
     next(formatValidationErrors(error));
   }
 };
 router
-  .route('/reset-password/:token([a-z0-9]{48})')
+  .route("/reset-password/:token([a-z0-9]{48})")
   .put(resetPassword)
   .patch(resetPassword);
 
