@@ -1,3 +1,32 @@
+# task-api-aws-s3-mongo-redis
+
+
+# 🚀 YYYYYYYYYYYYYYYYYYY 🚀
+
+https://github.com/coding-to-music/task-api-aws-s3-mongo-redis
+
+https://task-api-aws-s3-mongo-redis.vercel.app
+
+
+From / By 
+
+## Environment variables:
+
+```java
+```
+
+## GitHub
+
+```java
+git init
+git add .
+git remote remove origin
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:coding-to-music/task-api-aws-s3-mongo-redis.git
+git push -u origin main
+```
+
 # Task API
 
 ## Add env to .env file see example in .env.sample
