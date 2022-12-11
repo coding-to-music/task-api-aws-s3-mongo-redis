@@ -3,7 +3,7 @@ require("dotenv").config();
 const OAuthServer = require("express-oauth-server");
 const UnauthorizedRequestError = require("oauth2-server/lib/errors/unauthorized-request-error");
 const rateLimit = require("express-rate-limit");
-const RedisStore = require("rate-limit-redis");
+// const RedisStore = require("rate-limit-redis");
 const express = require("express");
 const cors = require("cors");
 const paginate = require("express-paginate");
@@ -32,13 +32,13 @@ app.use(compression()); // compress all responses
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const limiter = rateLimit({
-  store: new RedisStore({
-    client: require("./redis/db"),
-  }),
-});
-//  apply to all requests
-app.use(limiter);
+// const limiter = rateLimit({
+//   store: new RedisStore({
+//     client: require("./redis/db"),
+//   }),
+// });
+// //  apply to all requests
+// app.use(limiter);
 
 const userMiddlewares = require("./middlewares/user");
 
@@ -93,7 +93,7 @@ if (!module.parent) {
     const addr = server.address();
     const bind =
       typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
-    console.log("Listening on " + bind);
+    console.log("Listening on http://localhost:" + bind);
   });
 }
 

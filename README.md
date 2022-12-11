@@ -74,6 +74,35 @@ Checking /mnt/volume_nyc1_01/task-api-aws-s3-mongo-redis/package.json
 Run ncu -u to upgrade package.json
 ```
 
+## Getting error
+
+```
+npm run start
+```
+
+Output
+
+```
+> task-api-aws-s3-mongo-redis@1.0.0 start
+> node src/app.js
+
+Listening on port 3000
+/mnt/volume_nyc1_01/task-api-aws-s3-mongo-redis/node_modules/rate-limit-redis/dist/index.cjs:44
+    const result = await this.sendCommand("SCRIPT", "LOAD", `
+                              ^
+
+TypeError: this.sendCommand is not a function
+    at RedisStore.loadScript (/mnt/volume_nyc1_01/task-api-aws-s3-mongo-redis/node_modules/rate-limit-redis/dist/index.cjs:44:31)
+    at new RedisStore (/mnt/volume_nyc1_01/task-api-aws-s3-mongo-redis/node_modules/rate-limit-redis/dist/index.cjs:41:34)
+    at Object.<anonymous> (/mnt/volume_nyc1_01/task-api-aws-s3-mongo-redis/src/app.js:36:10)
+    at Module._compile (node:internal/modules/cjs/loader:1103:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1157:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)
+    at node:internal/main/run_main_module:17:47
+```
+
 # Task API
 
 ## Add env to .env file see example in .env.sample

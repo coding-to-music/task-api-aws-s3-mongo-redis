@@ -184,7 +184,7 @@ User.on("index", (err) => {
   if (err) {
     console.error("User index error: %s", err);
   } else {
-    console.info("User indexing complete");
+    console.info("MongoDB User indexing complete");
   }
 });
 
