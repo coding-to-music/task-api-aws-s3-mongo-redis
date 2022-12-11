@@ -103,6 +103,27 @@ TypeError: this.sendCommand is not a function
     at node:internal/main/run_main_module:17:47
 ```
 
+## Not sure what to expect the UI would look like
+
+```
+npm run start
+```
+
+```
+> task-api-aws-s3-mongo-redis@1.0.0 start
+> node src/app.js
+
+Listening on http://localhost:3000
+MongoDB User indexing complete
+MongoDB Task indexing complete
+```
+
+Browser Output:
+
+```
+{"error":"Not Found"}
+```
+
 # Task API
 
 ## Add env to .env file see example in .env.sample

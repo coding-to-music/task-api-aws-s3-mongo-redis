@@ -93,7 +93,8 @@ if (!module.parent) {
     const addr = server.address();
     const bind =
       typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
-    console.log("Listening on http://localhost:" + bind);
+    // console.log("Listening on " + bind);
+    console.log("Listening on http://localhost:" + port);
   });
 }
 
